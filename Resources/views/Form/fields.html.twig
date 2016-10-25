@@ -1,0 +1,15 @@
+{% block iban_widget -%}
+  {% import _self as macros %}
+  {% spaceless %}
+    <div class="form-inline">
+      <div class="input-group">
+        {{ form_widget(form.cccd) }}
+        {{ form_widget(form.a) }}
+        {{ form_widget(form.b) }}
+        {{ form_widget(form.c) }}
+        {{ form_widget(form.d) }}
+        {{ form_widget(form.e) }}
+      </div>
+    </div>
+  {% endspaceless %}
+{%- endblock iban_widget %}

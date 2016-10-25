@@ -1,0 +1,30 @@
+{
+    "name" : "makinacorpus/iban-bundle",
+    "type" : "symfony-bundle",
+    "description" : "International Bank Account Number form type",
+    "homepage" : "http://github.com/makinacorpus/iban-bundle",
+    "license" : "GPL-2",
+    "authors" : [
+        {
+            "name" : "Pierre Rineau",
+            "email" : "pierre.rineau@makina-corpus.com"
+        },
+        {
+            "name" : "Makina Corpus",
+            "homepage" : "http://makina-corpus.com"
+        }
+    ],
+    "minimum-stability" : "dev",
+    "prefer-stable" : true,
+    "require": {
+        "symfony/framework-bundle": "~2.3|~3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MakinaCorpus\\IbanBundle\\": ""
+        }
+    }
+}
