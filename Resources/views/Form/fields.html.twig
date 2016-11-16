@@ -13,3 +13,9 @@
     </div>
   {% endspaceless %}
 {%- endblock iban_widget %}
+
+{% block iban_row -%}
+  {# Makes it compatible with bootstrap 3 layouts #}
+  {% set force_error = true %}
+  {{- block('form_row') }}
+{%- endblock iban_row %}
