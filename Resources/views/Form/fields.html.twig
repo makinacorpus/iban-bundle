@@ -20,3 +20,16 @@
   {% set force_error = true %}
   {{- block('form_row') }}
 {%- endblock iban_row %}
+
+{% block iban_simple_widget -%}
+  {% import _self as macros %}
+  {% spaceless %}
+    {{ form_widget(form.value) }}
+  {% endspaceless %}
+{%- endblock iban_simple_widget %}
+
+{% block iban_simple_row -%}
+  {# Makes it compatible with bootstrap 3 layouts #}
+  {% set force_error = true %}
+  {{- block('form_row') }}
+{%- endblock iban_simple_row %}
