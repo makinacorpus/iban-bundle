@@ -3,7 +3,7 @@
     "type" : "symfony-bundle",
     "description" : "International Bank Account Number form type",
     "homepage" : "http://github.com/makinacorpus/iban-bundle",
-    "license" : "GPL-2",
+    "license" : "GPL-2.0-or-later",
     "authors" : [
         {
             "name" : "Pierre Rineau",
