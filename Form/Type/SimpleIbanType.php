@@ -22,9 +22,9 @@ class SimpleIbanType extends AbstractType
             ->add('value', TextType::class, [
                 'required' => true,
                 'attr' => [
-                    'maxlength' => 4 * 7,
+                    'maxlength' => 44, // reserve space for whitespace and -
                     'placeholder' => 'FR76 1234 5678 9012 3456 7890 1234',
-                    'size' => 4 * 7,
+                    'size' => 44,
                     'style' => 'width: auto;',
                 ],
             ])

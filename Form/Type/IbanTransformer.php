@@ -6,6 +6,11 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 class IbanTransformer implements DataTransformerInterface
 {
+    private function canonicalize($value)
+    {
+        return \preg_replace('/[^a-zA-Z0-9]+/', '', $value);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -15,6 +20,7 @@ class IbanTransformer implements DataTransformerInterface
             return null;
         }
 
+        $value = $this->canonicalize($value);
         $length = strlen($value);
 
         if ($length < 4) {
@@ -51,7 +57,7 @@ class IbanTransformer implements DataTransformerInterface
         $value = '';
 
         foreach (['cccd', 'a', 'b', 'c', 'd', 'e', 'f'] as $key) {
-            $value .= trim($submitted[$key]);
+            $value .= $this->canonicalize($submitted[$key]);
         }
 
         return $value;
