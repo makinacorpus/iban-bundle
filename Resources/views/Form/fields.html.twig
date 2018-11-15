@@ -2,7 +2,7 @@
   {% import _self as macros %}
   {% spaceless %}
     <div class="form-inline">
-      <div class="input-group">
+      <div class="input-group" data-iban="{{ form.cccd.id }}">
         {{ form_widget(form.cccd) }}
         {{ form_widget(form.a) }}
         {{ form_widget(form.b) }}
@@ -11,6 +11,32 @@
         {{ form_widget(form.e) }}
         {{ form_widget(form.f) }}
       </div>
+      {% if with_js %}
+      <script type="text/javascript">
+        (function (document) {
+          var el = document.querySelector('[data-iban=\"{{ form.cccd.id }}\"]');
+          if (el) {
+            var inputs = el.querySelectorAll('input');
+            var next = null;
+            // Starts with the last one
+            var i = inputs.length
+            for (; i--; 0 <= i) {
+              var current = inputs[i];
+              if (next) { // Skip the last, it has no next
+                (function (next) {
+                  current.addEventListener("keyup", function (event) {
+                    if (this.value.replace(/[^a-zA-Z0-9]+/).length === 4) {
+                      next.focus();
+                    }
+                  });
+                }(next));
+              }
+              next = current;
+            }
+          }
+        }(document));
+      </script>
+      {% endif %}
     </div>
   {% endspaceless %}
 {%- endblock iban_widget %}
