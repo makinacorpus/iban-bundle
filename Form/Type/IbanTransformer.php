@@ -30,7 +30,7 @@ class IbanTransformer implements DataTransformerInterface
         $ret = [];
         $ret['cccd'] = substr($value, 0, 4);
 
-        foreach (['a', 'b', 'c', 'd', 'e', 'f'] as $i => $key) {
+        foreach (['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as $i => $key) {
 
             // String starts at (array offset starts with 0)
             $start = $i * 4 + 4;
@@ -56,7 +56,7 @@ class IbanTransformer implements DataTransformerInterface
     {
         $value = '';
 
-        foreach (['cccd', 'a', 'b', 'c', 'd', 'e', 'f'] as $key) {
+        foreach (['cccd', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as $key) {
             $value .= $this->canonicalize($submitted[$key]);
         }
 

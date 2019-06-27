@@ -57,6 +57,19 @@ class IbanType extends AbstractType
                 'required' => false,
                 'attr' => $commonAttr,
             ])
+            ->add('g', TextType::class, [
+                'required' => false,
+                'attr' => $commonAttr,
+            ])
+            ->add('h', TextType::class, [
+                'required' => false,
+                'attr' => [
+                    'maxlength' => 2,
+                    'placeholder' => '12',
+                    'size' => 2,
+                    'style' => 'width: auto;',
+                ],
+            ])
             ->addModelTransformer(new IbanTransformer())
         ;
     }
